@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(
-   value = {"/pessoa"},
-   produces = {"application/json"}
-)
+@RequestMapping(value = { "/pessoa" }, produces = { "application/json" })
 public class PessoaController {
    @Autowired
    private PessoaRepository pessoaRepository;
@@ -22,14 +19,14 @@ public class PessoaController {
    public PessoaController() {
    }
 
-   @GetMapping({"/1"})
+   @GetMapping({ "/1" })
    public Pessoa getOne() {
       Pessoa p = new Pessoa(1L, "Pedro", "p@uol.com");
       return p;
    }
 
-   @PostMapping({"", "/"})
+   @PostMapping({ "", "/" })
    public Pessoa create(@RequestBody Pessoa p) {
-      throw new Error("Unresolved compilation problem: \n\tCannot make a static reference to the non-static method save(Pessoa) from the type CrudRepository<Pessoa,Long>\n");
+      return pessoaRepository.save(p);
    }
 }
