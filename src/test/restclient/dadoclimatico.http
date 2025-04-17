@@ -1,0 +1,13 @@
+POST http://localhost:8080/dados-climaticos
+Content-Type: application/json
+
+{
+    "tipo": "temperatura",
+    "valor": 28.7,
+    "dataHora": "2025-04-16T14:30:00",
+    "latitude": -23.56,
+    "longitude": -46.63,
+    "estacao": {
+    "id": 1
+    }
+}
