@@ -4,7 +4,9 @@ package br.edu.utfpr.api.controller;
 import br.edu.utfpr.api.model.Pessoa;
 import br.edu.utfpr.api.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +21,11 @@ public class PessoaController {
    public PessoaController() {
    }
 
-   @GetMapping({ "/1" })
-   public Pessoa getOne() {
-      Pessoa p = new Pessoa(1L, "Pedro", "p@uol.com");
-      return p;
+   @GetMapping("/{id}")
+   public ResponseEntity<Pessoa> getById(@PathVariable Long id) {
+      return pessoaRepository.findById(id)
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
    }
 
    @PostMapping({ "", "/" })

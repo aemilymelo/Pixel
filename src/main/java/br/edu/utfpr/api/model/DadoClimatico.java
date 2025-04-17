@@ -11,11 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class DadoClimatico {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class DadoClimatico extends BaseEntity {
 
     @Column(nullable = false)
     private String tipo; // temperatura, umidade, chuva

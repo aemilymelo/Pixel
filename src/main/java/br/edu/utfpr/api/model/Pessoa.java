@@ -13,8 +13,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="tb_pessoa")
-
+@Table(name = "tb_pessoa")
 
 @Getter
 @Setter
@@ -22,13 +21,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 
+public class Pessoa extends BaseEntity {
 
-public class Pessoa {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private long id;
-    
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
