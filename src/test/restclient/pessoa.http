@@ -27,3 +27,33 @@ Content-Type: application/json
     "nome" : "Emily",
     "email": "emily@gmail.com"
 }
+
+### Criar nova pessoa
+POST http://localhost:8080/pessoa
+Content-Type: application/json
+
+{
+    "nome": "Maria",
+    "email": "maria@email.com"
+}
+
+### Listar pessoas (com paginação)
+GET http://localhost:8080/pessoa?page=0&size=10
+
+
+### Buscar pessoa por ID
+GET http://localhost:8080/pessoa/4 
+
+### Atualizar pessoa com ID 2
+PUT http://localhost:8080/pessoa/2
+Content-Type: application/json
+
+{
+    "nome": "Kaique Atualizada",
+    "email": "kaiquenovo@email.com"
+}
+
+### Deletar pessoa com ID 4 (maria)
+DELETE http://localhost:8080/pessoa/4
+
+
