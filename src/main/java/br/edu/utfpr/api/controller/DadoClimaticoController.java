@@ -15,12 +15,13 @@ import java.util.List;
 @RequestMapping("/dados-climaticos")
 public class DadoClimaticoController extends CrudServiceImpl<DadoClimatico, Long> {
 
-    public DadoClimaticoController(JpaRepository<DadoClimatico, Long> repository) {
-        super(repository);
-    }
-
     @Autowired
     private DadoClimaticoRepository repository;
+
+    public DadoClimaticoController(DadoClimaticoRepository dadoClimaticoRepository) {
+        super(dadoClimaticoRepository);
+    }
+
 
     // ✅ Buscar por estação
     @GetMapping("/por-estacao/{id}")
