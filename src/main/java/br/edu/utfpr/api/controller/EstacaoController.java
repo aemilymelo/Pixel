@@ -1,26 +1,19 @@
 package br.edu.utfpr.api.controller;
 
 import br.edu.utfpr.api.model.Estacao;
-import br.edu.utfpr.api.repository.EstacaoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.edu.utfpr.api.utils.CrudServiceImpl;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/estacoes")
-public class EstacaoController {
+public class EstacaoController extends CrudServiceImpl<Estacao, Long> {
 
-    @Autowired
-    private EstacaoRepository estacaoRepository;
 
-    @PostMapping
-    public Estacao create(@RequestBody Estacao estacao) {
-        return estacaoRepository.save(estacao);
+    public EstacaoController(JpaRepository<Estacao, Long> repository) {
+        super(repository);
     }
 
-    @GetMapping
-    public List<Estacao> getAll() {
-        return estacaoRepository.findAll();
-    }
+
+
 }

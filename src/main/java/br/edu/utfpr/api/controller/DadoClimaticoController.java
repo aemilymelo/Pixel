@@ -2,7 +2,10 @@ package br.edu.utfpr.api.controller;
 
 import br.edu.utfpr.api.model.DadoClimatico;
 import br.edu.utfpr.api.repository.DadoClimaticoRepository;
+import br.edu.utfpr.api.utils.CrudServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
@@ -10,20 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/dados-climaticos")
-public class DadoClimaticoController {
+public class DadoClimaticoController extends CrudServiceImpl<DadoClimatico, Long> {
+
+    public DadoClimaticoController(JpaRepository<DadoClimatico, Long> repository) {
+        super(repository);
+    }
 
     @Autowired
     private DadoClimaticoRepository repository;
-
-    @PostMapping
-    public DadoClimatico create(@RequestBody DadoClimatico dado) {
-        return repository.save(dado);
-    }
-
-    @GetMapping
-    public List<DadoClimatico> getAll() {
-        return repository.findAll();
-    }
 
     // ✅ Buscar por estação
     @GetMapping("/por-estacao/{id}")
