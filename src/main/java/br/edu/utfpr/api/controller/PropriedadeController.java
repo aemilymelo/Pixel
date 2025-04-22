@@ -1,28 +1,16 @@
 package br.edu.utfpr.api.controller;
-
 import br.edu.utfpr.api.model.Propriedade;
-import br.edu.utfpr.api.repository.PropriedadeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.edu.utfpr.api.service.PropriedadeService;
+import br.edu.utfpr.api.utils.ViewImpl;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/propriedades")
-public class PropriedadeController {
+public class PropriedadeController extends ViewImpl<Propriedade, Long> {
 
-    @Autowired
-    private PropriedadeRepository propriedadeRepository;
-
-    // Criar nova propriedade
-    @PostMapping
-    public Propriedade create(@RequestBody Propriedade propriedade) {
-        return propriedadeRepository.save(propriedade);
+    public PropriedadeController(PropriedadeService service) {
+        super(service);
     }
 
-    // Listar todas
-    @GetMapping
-    public List<Propriedade> getAll() {
-        return propriedadeRepository.findAll();
-    }
+
 }

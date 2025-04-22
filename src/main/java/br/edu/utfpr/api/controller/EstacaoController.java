@@ -1,26 +1,15 @@
 package br.edu.utfpr.api.controller;
-
 import br.edu.utfpr.api.model.Estacao;
-import br.edu.utfpr.api.repository.EstacaoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.edu.utfpr.api.service.EstacaoService;
+import br.edu.utfpr.api.utils.ViewImpl;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/estacoes")
-public class EstacaoController {
+public class EstacaoController extends ViewImpl<Estacao, Long> {
 
-    @Autowired
-    private EstacaoRepository estacaoRepository;
-
-    @PostMapping
-    public Estacao create(@RequestBody Estacao estacao) {
-        return estacaoRepository.save(estacao);
+    public EstacaoController(EstacaoService service) {
+        super(service);
     }
 
-    @GetMapping
-    public List<Estacao> getAll() {
-        return estacaoRepository.findAll();
-    }
 }
