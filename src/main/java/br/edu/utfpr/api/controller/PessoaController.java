@@ -1,17 +1,15 @@
 package br.edu.utfpr.api.controller;
 import br.edu.utfpr.api.model.Pessoa;
-import br.edu.utfpr.api.utils.CrudServiceImpl;
-import org.springframework.data.jpa.repository.JpaRepository;
+import br.edu.utfpr.api.service.PessoaService;
+import br.edu.utfpr.api.utils.ViewImpl;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/pessoa", produces = "application/json")
-public class PessoaController extends CrudServiceImpl<Pessoa, Long> {
+public class PessoaController extends ViewImpl<Pessoa, Long> {
    
-   public PessoaController(JpaRepository<Pessoa, Long> repository) {
-      super(repository);
+   public PessoaController(PessoaService service) {
+      super(service);
    }
-
-
-
+   
 }

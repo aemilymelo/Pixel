@@ -1,19 +1,15 @@
 package br.edu.utfpr.api.controller;
-
 import br.edu.utfpr.api.model.Estacao;
-import br.edu.utfpr.api.utils.CrudServiceImpl;
-import org.springframework.data.jpa.repository.JpaRepository;
+import br.edu.utfpr.api.service.EstacaoService;
+import br.edu.utfpr.api.utils.ViewImpl;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/estacoes")
-public class EstacaoController extends CrudServiceImpl<Estacao, Long> {
+public class EstacaoController extends ViewImpl<Estacao, Long> {
 
-
-    public EstacaoController(JpaRepository<Estacao, Long> repository) {
-        super(repository);
+    public EstacaoController(EstacaoService service) {
+        super(service);
     }
-
-
 
 }
