@@ -11,13 +11,11 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "tb_pessoa")
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class Pessoa extends BaseEntity {
 
     @Column(name = "nome", nullable = false, length = 100)
@@ -25,4 +23,5 @@ public class Pessoa extends BaseEntity {
 
     @Column(name = "email", nullable = false, length = 90)
     private String email;
+
 }
