@@ -24,4 +24,6 @@ public class Pessoa extends BaseEntity {
     @Column(name = "email", nullable = false, length = 90)
     private String email;
 
+    @Column(name = "password", nullable = false)
+    private String password;
 }
