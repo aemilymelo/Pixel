@@ -1,21 +1,24 @@
 package br.edu.utfpr.api.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-
-
+import br.edu.utfpr.api.dto.PessoaDTO;
+import br.edu.utfpr.api.model.Pessoa;
+import br.edu.utfpr.api.service.PessoaService;
+import br.edu.utfpr.api.utils.ViewImpl;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping(value = "/pessoa", produces = "application/json")
+public class PessoaController extends ViewImpl<Pessoa, Long> {
 
-public class PessoaController {
+   public PessoaController(PessoaService service) {
+      super(service);
+   }
 
-    @GetMapping("/1")
-    @RequestMapping(value ="/pessoa", produces = "application/json")
-    public String getOne(){
-        return "{'id' : 1, 'nome': 'João' , 'idade': 30}";
-    }
-
+   @PostMapping("/dto")
+   public ResponseEntity<Pessoa> criarPessoa(@RequestBody @Valid PessoaDTO dto) {
+      Pessoa pessoa = dto.toEntity();
+      return service.save(pessoa);
+   }
 }
