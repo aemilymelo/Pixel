@@ -11,6 +11,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "tb_pessoa")
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,4 +27,30 @@ public class Pessoa extends BaseEntity {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    public void setUsername(String value){
+        this.nome = value;
+    }
+    public String getUsername(){
+        return this.nome;
+    }
+    public void setEmail(String value){
+        this.email = value;
+    }
+    public String getEmail(){
+        return this.email;
+    }
+    public void setNome(String value){
+        this.nome = value;
+    }
+    public String getNome(){
+        return this.nome;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+
+    public void setPassword(String value){
+        this.password = value;
+    }
 }
