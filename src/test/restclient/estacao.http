@@ -1,10 +1,8 @@
-POST http://localhost:8080/estacoes
+POST http://localhost:8080/estacao/dto
 Content-Type: application/json
 
 {
     "nome": "Estação Clima Norte",
     "tipo": "Automática",
-    "propriedade": {
     "id": 1
-    }
 }

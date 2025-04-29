@@ -1,48 +1,20 @@
-@URL=http://localhost:8080/pessoa
-
 ### Criar pessoa 1
-POST {{URL}}
+POST http://localhost:8080/pessoa/dto
 Content-Type: application/json
 
 {
-    "nome": "Eduarda",
-    "email": "eduarda@email.com"
+    "nome": "joao",
+    "email": "joao.silva@email.com",
+    "password": "senha"
 }
 
-### Criar pessoa 2
-POST {{URL}}
-Content-Type: application/json
-
-{
-    "nome": "Kaique",
-    "email": "kaique@gmail.com"
-}
-
-##criar pessoa 3
-
-POST {{URL}}
-Content-Type: application/json
-
-{
-    "nome" : "Emily",
-    "email": "emily@gmail.com"
-}
-
-### Criar nova pessoa
-POST http://localhost:8080/pessoa
-Content-Type: application/json
-
-{
-    "nome": "Maria",
-    "email": "maria@email.com"
-}
 
 ### Listar pessoas (com paginação)
 GET http://localhost:8080/pessoa?page=0&size=10
 
 
 ### Buscar pessoa por ID
-GET http://localhost:8080/pessoa/4 
+GET http://localhost:8080/pessoa/4
 
 ### Atualizar pessoa com ID 2
 PUT http://localhost:8080/pessoa/2
