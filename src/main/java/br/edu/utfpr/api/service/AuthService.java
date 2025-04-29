@@ -1,5 +1,5 @@
 package br.edu.utfpr.api.service;
-import br.edu.utfpr.api.DTO.AuthRequest;
+import br.edu.utfpr.api.dto.AuthRequest;
 import br.edu.utfpr.api.model.Pessoa;
 import br.edu.utfpr.api.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;

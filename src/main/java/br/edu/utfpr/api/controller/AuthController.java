@@ -1,5 +1,5 @@
 package br.edu.utfpr.api.controller;
-import br.edu.utfpr.api.DTO.AuthRequest;
+import br.edu.utfpr.api.dto.AuthRequest;
 import br.edu.utfpr.api.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

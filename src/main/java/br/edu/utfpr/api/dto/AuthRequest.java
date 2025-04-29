@@ -1,4 +1,4 @@
-package br.edu.utfpr.api.DTO;
+package br.edu.utfpr.api.dto;
 import lombok.Data;
 import lombok.ToString;
 
