@@ -2,18 +2,11 @@ package br.edu.utfpr.api.utils;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-
+import org.springframework.web.bind.annotation.*;
 
 
 public abstract class ViewImpl<T, ID extends Serializable> implements Crud<T, ID> {
-    
 
     protected final CrudService<T, ID> service;
 
@@ -23,7 +16,7 @@ public abstract class ViewImpl<T, ID extends Serializable> implements Crud<T, ID
 
     @PostMapping
     @Override
-    public ResponseEntity<T> save(T entity) {
+    public ResponseEntity<T> save(@RequestBody T entity) {
       return service.save(entity);
 
     }
