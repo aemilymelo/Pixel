@@ -17,6 +17,7 @@ public class SecurityConfig {
 
     @Autowired
     private JwtUtil jwtUtil;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
@@ -28,6 +29,17 @@ public class SecurityConfig {
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
+    // @Bean
+    // public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    //     http
+    //       .authorizeHttpRequests(auth -> auth
+    //           .requestMatchers("/auth/**").permitAll()
+    //           .anyRequest().authenticated()
+    //       )
+    //       .oauth2ResourceServer(oauth2 -> oauth2.jwt());
+    //     return http.build();
+    // }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
