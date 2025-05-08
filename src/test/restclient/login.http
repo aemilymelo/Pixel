@@ -1,0 +1,8 @@
+POST http://localhost:9090/auth/login-cognito
+Content-Type: application/json
+
+{
+"email": "kaique@gmail.com",
+"username":"kaique@gmail.com",
+"password": "@Utfpr2024"
+}
