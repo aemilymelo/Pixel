@@ -11,6 +11,7 @@ Content-Type: application/json
 
 ### Listar pessoas (com paginação)
 GET http://localhost:8080/pessoa?page=0&size=10
+Authorization : bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYWlxdWUyQGVtYWlsLmNvbSIsImlhdCI6MTc0NjAxNjczNywiZXhwIjoxNzQ2MDE2ODIzfQ.DOngwRwVohSxJsmiU25Di9nnnN2_zdWv_GBHE9y4yP4
 
 
 ### Buscar pessoa por ID

@@ -1,4 +1,5 @@
 package br.edu.utfpr.api.security;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -37,6 +38,7 @@ public class JwtUtil {
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
+
     public Claims validateToken(String token) throws ServletException, IOException {
         try {
             return Jwts.parserBuilder()
@@ -47,7 +49,7 @@ public class JwtUtil {
         } catch (io.jsonwebtoken.ExpiredJwtException e) {
             throw new RuntimeException("Token expirado");
         } catch (Exception e) {
-            throw new RuntimeException("Token inválido");
+            throw new RuntimeException("Token invalido");
         }
     }
 }
