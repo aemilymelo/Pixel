@@ -1,18 +1,13 @@
 package br.edu.utfpr.api.controller;
 import br.edu.utfpr.api.dto.AuthRequest;
-import br.edu.utfpr.api.service.AuthService;
 import lombok.RequiredArgsConstructor;
-
-
 import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +40,6 @@ import java.nio.charset.StandardCharsets;
 @RequiredArgsConstructor
 public class AuthController {
 
-    @Autowired
-    private AuthService authService;
 
     @Value("${aws.cognito.url}")
     private String cognitoUrl;
@@ -64,10 +57,6 @@ public class AuthController {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    @PostMapping(value="/login", consumes = {"application/json", "application/*+json"})
-    public String login(@RequestBody AuthRequest request) {
-        return authService.login(request);
-    }
 
      @PostMapping("/login-cognito")
     public ResponseEntity<?> loginCognito(@RequestBody AuthRequest authRequest) {
@@ -104,13 +93,6 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.status(500).body(Map.of("error", e.getMessage()));
         }
-    }
-
-
-    @PostMapping("/register")
-    public String register(@RequestBody AuthRequest request) {
-        authService.register(request);
-        return "Usu�rio registrado com sucesso";
     }
 
     private String calculateSecretHash(String input) throws Exception {
