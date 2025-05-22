@@ -5,13 +5,13 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class InterceptorConfig  implements WebMvcConfigurer  {
+public class InterceptorConfig implements WebMvcConfigurer {
     @Autowired
     private CognitoTokenValidationInterceptor cognitoTokenValidationInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(cognitoTokenValidationInterceptor)
-                .addPathPatterns("/api/**");
+                .addPathPatterns("/api/**"); // Aplica o interceptor aos seus endpoints protegidos
     }
 }
