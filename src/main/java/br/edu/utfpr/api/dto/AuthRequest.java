@@ -6,19 +6,8 @@ import lombok.ToString;
 @Data
 @ToString
 public class AuthRequest {
-    private String email;
     private String username;
     private String password;
-
-
-    // Getters e Setters
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
         return password;
