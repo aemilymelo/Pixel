@@ -7,6 +7,7 @@ import br.edu.utfpr.api.utils.ViewImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Propriedade", description = "Recurso para gerenciamento de propriedades")
 @RestController
 @RequestMapping("/propriedades")
+@SecurityRequirement(name = "bearerAuth")
 public class PropriedadeController extends ViewImpl<Propriedade, Long> {
 
     private final PropriedadeService service;
