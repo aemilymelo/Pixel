@@ -7,7 +7,6 @@ import br.edu.utfpr.api.utils.ViewImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Tipo Dado", description = "Recurso para gerenciamento de tipos de dados climáticos")
 @RestController
 @RequestMapping(value = "/tipodado", produces = "application/json")
-@SecurityRequirement(name = "bearerAuth")
 public class TipoDadoController extends ViewImpl<TipoDado, Long> {
 
     public TipoDadoController(TipoDadoService service) {
