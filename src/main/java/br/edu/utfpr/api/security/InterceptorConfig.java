@@ -1,17 +1,28 @@
 package br.edu.utfpr.api.security;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
-    @Autowired
-    private CognitoTokenValidationInterceptor cognitoTokenValidationInterceptor;
+
+    private final CognitoTokenValidationInterceptor cognitoTokenValidationInterceptor;
+
+    public InterceptorConfig(CognitoTokenValidationInterceptor cognitoTokenValidationInterceptor) {
+        this.cognitoTokenValidationInterceptor = cognitoTokenValidationInterceptor;
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(cognitoTokenValidationInterceptor)
-                .addPathPatterns("/api/**"); // Aplica o interceptor aos seus endpoints protegidos
+                .addPathPatterns("/api/**")
+                .excludePathPatterns(
+                        "/swagger-ui.html",
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/swagger-resources/**",
+                        "/webjars/**",
+                        "/v3/api-docs");
     }
 }

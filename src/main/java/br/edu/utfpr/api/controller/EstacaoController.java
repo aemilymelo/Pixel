@@ -9,6 +9,7 @@ import br.edu.utfpr.api.utils.ViewImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Estação", description = "Recurso para gerenciamento de estações climáticas associadas a propriedades")
 @RestController
 @RequestMapping(value = "/estacao", produces = "application/json")
+@SecurityRequirement(name = "bearerAuth")
+
 public class EstacaoController extends ViewImpl<Estacao, Long> {
 
     private final PropriedadeService propriedadeService;
